@@ -22,19 +22,35 @@
         render();
     };
 
+    const removeTask = (taskIndex) =>{
+        tasks.splice(taskIndex, 1);
+        render();
+    }
+
 
     const render = () => {
         let htmlString = "";
 
         for (const task of tasks) {
             htmlString += `
+            
             <li ${task.done ? " style=\"text-decoration:line-through\"" : ""}>
-                ${task.content}
+            <button class="js-remove">Remove</button>
+            ${task.content}
+            
             </li>
             `;
         }
 
         document.querySelector(".js-tasksList").innerHTML = htmlString;
+
+        const removeButtons = document.querySelectorAll(".js-remove");
+        
+        removeButtons.forEach((removeButton, taskIndex) =>{
+            removeButton.addEventListener("click", () =>{
+               removeTask(taskIndex);
+            });
+        });
     };
 
 
