@@ -18,7 +18,7 @@ Simple "to-do" tasks list with adding and removing new tasks features. Try and e
 
 ### Remarks
 
-Procject #3. <br>
+Project #3. <br>
 
 Project made by Marcin Szpytma.
 
