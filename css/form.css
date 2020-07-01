@@ -12,6 +12,14 @@
     flex-grow: 1;
 }
 
+@media (max-width: 767px) {
+    .form__input {
+        margin-right: 0;
+        margin-bottom: 10px;
+        width: 100%;
+    }
+}
+
 .form__button {
     height: 55px;
     font-size: 20px;
@@ -20,6 +28,12 @@
     border: none;
     padding: 15px;
     
+}
+
+@media (max-width: 767px) {
+    .form__button {
+        flex-grow: 1;
+    }
 }
 
 .form__removeButton {
