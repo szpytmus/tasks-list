@@ -6,25 +6,42 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
         integrity="sha256-l85OmPOjvil/SOvVt3HnSSjzF1TUMyT9eV0c2BzEGzU=" crossorigin="anonymous" />
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+        rel="stylesheet">
     <script defer src="js/script.js"> </script>
     <link href="css/general.css" rel="stylesheet">
+    <link href="css/form.css" rel="stylesheet">
+    <link href="css/list.css" rel="stylesheet">
+    <link href="css/section.css" rel="stylesheet">
+
     <title>Tasks List</title>
 </head>
 
+
 <body>
+   <main class="container">
 
-    <form class="js-form">
-        <input class="js-newTask">
-        <button class="js-addTask">Add task</button>
-    </form>
+    <h1>Tasks List</h1>
+        <section class="section">
+            <h2 class="section__header">Add a new task</h2>
+            <form class="js-form form">
+                <input class="js-newTask form__input" placeholder="Anything to do?" autofocus>
+                <button class="js-addTask form__button">Add task</button>
+            </form>
+        </section>
 
-    <ul class = "js-tasksList">
+        <section class="section section--below">
+            <h2 class="section__header">Tasks list</h2>
 
-    </ul>
+            <ul class="js-tasksList list">
+            </ul>
+        </section>
 
 
-
+    </main>
 
 </body>
+
+
 
 </html>

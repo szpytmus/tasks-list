@@ -1,0 +1,43 @@
+.list{
+    list-style-type: none;
+    padding:10px;
+}
+
+.tasksList {
+    
+    border-bottom: 3px solid #eee;
+    display: flex;
+    padding: 10px;
+    align-items: center;
+    justify-content: space-between;
+
+}
+
+.tasksList__button {
+    background-color: green;
+    width: 30px;
+    height: 30px;
+    border: none;
+    flex-shrink: 0;
+    background-size: 25px;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.tasksList__button--remove {
+    background-color: red;
+    background-image: url("../images/trashcan.png");
+}
+
+.tasksList__button--checked {
+    background-image: url("../images/tick.png");
+}
+
+.tasksList__content {
+    flex-grow: 1;
+    margin: 0 10px;
+}
+
+.tasksList__content--done {
+    text-decoration: line-through;
+}

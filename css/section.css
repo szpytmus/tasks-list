@@ -1,0 +1,15 @@
+.section{
+    background: #fff;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+}
+
+.section__header{
+    padding: 20px;
+    margin: 0;
+    border-bottom: 3px solid #eee;
+}
+
+.section--below{
+    margin-top:20px;
+}
