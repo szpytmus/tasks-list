@@ -6,6 +6,11 @@
 
     const addNewTask = (newTaskContent) => {
 
+       
+        if(newTaskContent === ""){
+            return;
+        }
+
         tasks.push({
             content: newTaskContent,
             done: false,
@@ -64,13 +69,8 @@
 
     const onFormSubmit = (event) => {
         event.preventDefault();
-
         const newTaskContent = document.querySelector(".js-newTask").value.trim();
-       
-        if(newTaskContent === ""){
-            return;
-        }
-
+        document.querySelector(".js-newTask").focus();
 
         addNewTask(newTaskContent);
     };
