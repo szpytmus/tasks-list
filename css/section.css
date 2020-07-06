@@ -13,3 +13,9 @@
 .section--below{
     margin-top:20px;
 }
+
+.section__header--grid{
+    display:grid;
+    grid-template-columns: 3fr auto auto;
+    grid-gap: 20px;
+}

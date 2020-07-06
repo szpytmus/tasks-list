@@ -1,15 +1,17 @@
-.list{
+.tasksList{
     list-style-type: none;
     padding:10px;
 }
 
-.tasksList {
+.tasksList__item {
     
     border-bottom: 3px solid #eee;
-    display: flex;
-    padding: 10px;
-    align-items: center;
-    justify-content: space-between;
+    display:grid;
+    grid-template-columns: auto 1fr auto;
+    grid-gap:10px;
+    align-items:center;
+    padding:10px;
+    border-bottom: 1px solid #ddd;
 
 }
 
