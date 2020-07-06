@@ -22,6 +22,7 @@
             ...tasks.slice(0,taskIndex),
             ...tasks.slice(taskIndex+1),
         ];
+
         render();
     };
 
@@ -29,6 +30,28 @@
 
         tasks[taskIndex].done = !tasks[taskIndex].done
         render();
+    };
+
+    const toggleTasksDone = () => {
+
+            for (const taskIndex in tasks){
+                if(tasks[taskIndex].done == false){
+                    tasks[taskIndex].done = true
+                    
+                };
+            };
+
+    render();
+
+    };
+
+    const bindButtonsEvents = () => {
+
+        const allTasksDoneButton = document.querySelector(".js-allTasksDone");
+        allTasksDoneButton.addEventListener("click", () => {
+            toggleTasksDone();
+        })
+
     };
 
     const bindRemoveEvents = () => {
@@ -67,23 +90,24 @@
         }
 
         document.querySelector(".js-tasksList").innerHTML = htmlString;
-    }
+    };
 
     const renderButtons = () => {
+    
+    };
 
-    }
-
-    const bindButtonsEvents = () => {}
+    
 
 
     const render = () => {
-
+        
+        bindButtonsEvents();
         renderTasks();
         renderButtons();
 
         bindRemoveEvents();
         bindToggleDoneEvents();
-        bindButtonsEvents();
+        
     };
 
 
@@ -109,7 +133,6 @@
 
         form.addEventListener("submit", onFormSubmit);
     };
-
 
     init();
 
