@@ -20,6 +20,12 @@
     grid-gap: 20px;
 }
 
+@media (max-width: 767px) {
+    .section__header--grid {
+        grid-template-columns: 1fr;
+    }
+}
+
 .section__button {
     height: 50px;
     font-size: 20px;
@@ -27,16 +33,17 @@
     color: white;
     border: none;
     padding: 15px;
-    transition: 2s;
+    
 }
 
 .section__button:disabled {
     height: 50px;
     font-size: 20px;
-    background-color: hsl(180, 100%, 35%);
+    background-color: hsl(180, 1%, 54%);
     color: white;
     border: none;
     padding: 15px;
+    transition: 0s;
 }
 
 .section__button--hidden{
@@ -56,4 +63,5 @@
     color: white;
     border: none;
     padding: 15px;
+    transition: 2s;
 }
