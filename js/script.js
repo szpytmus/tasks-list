@@ -9,8 +9,10 @@
 
         tasks = [
             ...tasks,
-            {content: newTaskContent,
-            done: false,},
+            {
+                content: newTaskContent,
+                done: false,
+            },
         ];
 
         render();
@@ -18,13 +20,29 @@
 
     const removeTask = (taskIndex) => {
 
-        tasks = [ 
-            ...tasks.slice(0,taskIndex),
-            ...tasks.slice(taskIndex+1),
+        tasks = [
+            ...tasks.slice(0, taskIndex),
+            ...tasks.slice(taskIndex + 1),
         ];
 
         render();
     };
+
+    const toggleSecondaryButtons = () => {
+
+        const allTasksDoneButton = document.querySelector(".js-allTasksDone");
+        const toggleDoneTasksButton = document.querySelector(".js-toggleDoneTasks");
+
+        if (tasks.length == 0) {
+            allTasksDoneButton.classList.add("section__button--hidden")
+            toggleDoneTasksButton.classList.add("section__button--hidden")
+        }
+        else{
+            allTasksDoneButton.classList.remove("section__button--hidden")
+            toggleDoneTasksButton.classList.remove("section__button--hidden")
+        }
+    
+    }
 
     const toggleTaskDone = (taskIndex) => {
 
@@ -34,24 +52,24 @@
 
     const toggleTasksDone = () => {
 
-            for (const taskIndex in tasks){
-                if(tasks[taskIndex].done == false){
-                    tasks[taskIndex].done = true
-                    
-                };
+        for (const taskIndex in tasks) {
+            if (tasks[taskIndex].done == false) {
+                tasks[taskIndex].done = true
+
             };
-    render();
+        };
+        render();
 
     };
 
     const checkToggleAllDoneButton = () => {
 
-        if( tasks.every(({ done }) => done)){   
+        if (tasks.every(({ done }) => done)) {
             document.getElementById("allTasksDoneButton").disabled = true;
-            }
-        else if( tasks.some(({ done }) => !done)){   
+        }
+        else if (tasks.some(({ done }) => !done)) {
             document.getElementById("allTasksDoneButton").disabled = false;
-            }
+        }
     }
 
     const bindButtonsEvents = () => {
@@ -59,7 +77,7 @@
         const allTasksDoneButton = document.querySelector(".js-allTasksDone");
         allTasksDoneButton.addEventListener("click", () => {
 
-            
+
             toggleTasksDone();
         })
 
@@ -104,21 +122,22 @@
     };
 
     const renderButtons = () => {
-    
+
     };
 
-    
+
 
 
     const render = () => {
-        
+
         bindButtonsEvents();
         renderTasks();
         renderButtons();
         checkToggleAllDoneButton();
         bindRemoveEvents();
         bindToggleDoneEvents();
-        
+        toggleSecondaryButtons();
+
     };
 
 
