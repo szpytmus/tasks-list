@@ -28,3 +28,12 @@
     border: none;
     padding: 15px;
 }
+
+.section__button:disabled {
+    height: 50px;
+    font-size: 20px;
+    background-color: hsl(180, 100%, 35%);
+    color: white;
+    border: none;
+    padding: 15px;
+}

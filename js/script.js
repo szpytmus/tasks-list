@@ -40,15 +40,26 @@
                     
                 };
             };
-
     render();
 
     };
+
+    const checkToggleAllDoneButton = () => {
+
+        if( tasks.every(({ done }) => done)){   
+            document.getElementById("allTasksDoneButton").disabled = true;
+            }
+        else if( tasks.some(({ done }) => !done)){   
+            document.getElementById("allTasksDoneButton").disabled = false;
+            }
+    }
 
     const bindButtonsEvents = () => {
 
         const allTasksDoneButton = document.querySelector(".js-allTasksDone");
         allTasksDoneButton.addEventListener("click", () => {
+
+            
             toggleTasksDone();
         })
 
@@ -104,7 +115,7 @@
         bindButtonsEvents();
         renderTasks();
         renderButtons();
-
+        checkToggleAllDoneButton();
         bindRemoveEvents();
         bindToggleDoneEvents();
         
