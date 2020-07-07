@@ -3,8 +3,6 @@
     let tasks = [
     ];
 
-    let hideDoneTasks = false;
-
     const addNewTask = (newTaskContent) => {
 
         tasks = [
@@ -28,21 +26,6 @@
         render();
     };
 
-    const toggleSecondaryButtons = () => {
-
-        const allTasksDoneButton = document.querySelector(".js-allTasksDone");
-        const toggleDoneTasksButton = document.querySelector(".js-toggleDoneTasks");
-
-        if (tasks.length == 0) {
-            allTasksDoneButton.classList.add("section__button--hidden")
-            toggleDoneTasksButton.classList.add("section__button--hidden")
-        }
-        else{
-            allTasksDoneButton.classList.remove("section__button--hidden")
-            toggleDoneTasksButton.classList.remove("section__button--hidden")
-        }
-    
-    }
 
     const toggleTaskDone = (taskIndex) => {
 
@@ -50,7 +33,7 @@
         render();
     };
 
-    const toggleTasksDone = () => {
+    const setTasksDone = () => {
 
         for (const taskIndex in tasks) {
             if (tasks[taskIndex].done == false) {
@@ -61,6 +44,9 @@
         render();
 
     };
+
+
+   
 
     const checkToggleAllDoneButton = () => {
 
@@ -73,12 +59,21 @@
     }
 
     const bindButtonsEvents = () => {
+        
+        let hideDoneTasks = false;
 
         const allTasksDoneButton = document.querySelector(".js-allTasksDone");
         allTasksDoneButton.addEventListener("click", () => {
 
+            setTasksDone();
+        })
 
-            toggleTasksDone();
+        const toggleDoneTasksButton = document.querySelector(".js-toggleDoneTasks");
+        toggleDoneTasksButton.addEventListener("click", () => {
+
+           hideDoneTasks = !hideDoneTasks;
+    
+            toggleDoneTasks(hideDoneTasks);
         })
 
     };
@@ -123,6 +118,17 @@
 
     const renderButtons = () => {
 
+        const allTasksDoneButton = document.querySelector(".js-allTasksDone");
+        const toggleDoneTasksButton = document.querySelector(".js-toggleDoneTasks");
+
+        if (tasks.length == 0) {
+            allTasksDoneButton.classList.add("section__button--hidden")
+            toggleDoneTasksButton.classList.add("section__button--hidden")
+        }
+        else{
+            allTasksDoneButton.classList.remove("section__button--hidden")
+            toggleDoneTasksButton.classList.remove("section__button--hidden")
+        }
     };
 
 
@@ -136,7 +142,6 @@
         checkToggleAllDoneButton();
         bindRemoveEvents();
         bindToggleDoneEvents();
-        toggleSecondaryButtons();
 
     };
 

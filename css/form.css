@@ -33,6 +33,18 @@
     color: white;
     border: none;
     padding: 15px;
+    transition: 2s;
+    
+}
+
+.form__button:hover {
+    height: 50px;
+    font-size: 20px;
+    background-color: hsl(180, 100%, 45%);
+    color: white;
+    border: none;
+    padding: 15px;
+    transform: scale(1.2);
     
 }
 

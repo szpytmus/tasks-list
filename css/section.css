@@ -27,6 +27,7 @@
     color: white;
     border: none;
     padding: 15px;
+    transition: 2s;
 }
 
 .section__button:disabled {
@@ -43,6 +44,15 @@
     height: 50px;
     font-size: 20px;
     background-color: hsl(180, 100%, 35%);
+    color: white;
+    border: none;
+    padding: 15px;
+}
+
+.section__button:hover {
+    height: 50px;
+    font-size: 20px;
+    background-color: hsl(180, 100%, 45%);
     color: white;
     border: none;
     padding: 15px;
