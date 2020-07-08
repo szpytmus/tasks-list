@@ -3,6 +3,8 @@
     let tasks = [
     ];
 
+    let hideDoneTasks = false;
+
     const addNewTask = (newTaskContent) => {
 
         tasks = [
@@ -29,24 +31,26 @@
 
     const toggleTaskDone = (taskIndex) => {
 
-        tasks[taskIndex].done = !tasks[taskIndex].done
+        tasks = [
+            ...tasks.slice(0, taskIndex),
+            { ...tasks[taskIndex], done: !tasks[taskIndex].done, },
+            ...tasks.slice(taskIndex + 1),
+        ];
+
         render();
     };
 
     const setTasksDone = () => {
 
-        for (const taskIndex in tasks) {
-            if (tasks[taskIndex].done == false) {
-                tasks[taskIndex].done = true
+        tasks.forEach((task, taskIndex) => {
+            if (!task.done)
+                toggleTaskDone(taskIndex)
+        })
 
-            };
-        };
-        render();
+    render();
 
     };
 
-
-   
 
     const checkToggleAllDoneButton = () => {
 
@@ -59,8 +63,7 @@
     }
 
     const bindButtonsEvents = () => {
-        
-        let hideDoneTasks = false;
+
 
         const allTasksDoneButton = document.querySelector(".js-allTasksDone");
         allTasksDoneButton.addEventListener("click", () => {
@@ -71,10 +74,9 @@
         const toggleDoneTasksButton = document.querySelector(".js-toggleDoneTasks");
         toggleDoneTasksButton.addEventListener("click", () => {
 
-           hideDoneTasks = !hideDoneTasks;
-    
-            toggleDoneTasks(hideDoneTasks);
-        })
+            hideDoneTasks = !hideDoneTasks;
+            render();
+        });
 
     };
 
@@ -105,7 +107,7 @@
         let htmlString = "";
 
         for (const task of tasks) {
-            htmlString += `<li class="tasksList__item">
+            htmlString += `<li class="tasksList__item ${task.done && hideDoneTasks ? "tasksList__item--hidden" : ""}">
             <button class="tasksList__button ${task.done ? "tasksList__button--checked" : ""} js-done"></button>
             <span class="tasksList__content ${task.done ? "tasksList__content--done" : ""}" > ${task.content}</span>
             <button class="tasksList__button tasksList__button--remove js-remove"></button>
@@ -125,10 +127,13 @@
             allTasksDoneButton.classList.add("section__button--hidden")
             toggleDoneTasksButton.classList.add("section__button--hidden")
         }
-        else{
+        else {
             allTasksDoneButton.classList.remove("section__button--hidden")
             toggleDoneTasksButton.classList.remove("section__button--hidden")
         }
+
+        hideDoneTasks ? toggleDoneTasksButton.innerHTML = "Show done" : toggleDoneTasksButton.innerHTML = "Hide done";
+
     };
 
 
