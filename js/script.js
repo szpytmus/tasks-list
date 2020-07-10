@@ -73,16 +73,17 @@
 
 
         const allTasksDoneButton = document.querySelector(".js-allTasksDone");
-        allTasksDoneButton.addEventListener("click", () => {
-
-            setTasksDone();
-        })
-
         const toggleDoneTasksButton = document.querySelector(".js-toggleDoneTasks");
-        toggleDoneTasksButton.addEventListener("click", () => {
 
+        if(allTasksDoneButton){
+            allTasksDoneButton.addEventListener("click", setTasksDone);
+        }
+        
+        if(toggleDoneTasksButton){
+        toggleDoneTasksButton.addEventListener("click", toggleHideDoneTasks);
+        }
             
-        });
+       
 
     };
 
